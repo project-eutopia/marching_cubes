@@ -13,8 +13,6 @@ class Point {
 
   public:
 
-    constexpr Point() : elements_() {}
-
     template <typename ... Args>
     constexpr Point(const Args& ... args) : elements_{args...} {}
 
