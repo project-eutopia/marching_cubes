@@ -429,6 +429,7 @@ class MarchingCubes {
       {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}
     }};
 
+    // Could speed up by using absolute indexes instead of index_type objects everywhere.
     template <typename T>
     static Mesh polygonize_tensor(const Tensor<T,3>& tensor, const std::function<bool(T)> is_inside) {
       std::vector<triangle_type> triangles;

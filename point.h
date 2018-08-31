@@ -5,6 +5,8 @@
 
 template <typename T, size_t N>
 class Point {
+  static_assert(N >= 1, "N must be at least 1 for Point");
+
   public:
     using value_type = T;
 

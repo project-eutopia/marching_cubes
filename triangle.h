@@ -4,6 +4,8 @@
 
 template <typename T, size_t N>
 class Triangle {
+  static_assert(N >= 2, "N must be at least 2 for Triangle");
+
   public:
     using vertex_type = Point<T,N>;
 
@@ -17,5 +19,8 @@ class Triangle {
     const vertex_type& v0() const { return v0_; }
     const vertex_type& v1() const { return v1_; }
     const vertex_type& v2() const { return v2_; }
+
+    bool operator==(const Triangle<T,N>& rhs) const { return v0() == rhs.v0() && v1() == rhs.v1() && v2() == rhs.v2(); }
+    bool operator!=(const Triangle<T,N>& rhs) const { return !(*this == rhs); }
 };
 

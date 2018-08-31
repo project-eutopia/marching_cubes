@@ -10,6 +10,8 @@
 
 template <typename T, size_t N>
 class Tensor {
+  static_assert(N >= 1, "N must be at least 1 for Tensor");
+
   public:
     using size_type            = Size<size_t,N>;
     using index_type           = Point<size_t,N>;
@@ -45,12 +47,11 @@ class Tensor {
       return transformed;
     }
 
+    // Value at absolute index (or regular index if 1D)
     const_reference_type operator()(size_t i) const {
-      static_assert(N == 1, "Cannot call operator() with 1 argument unless N == 1");
       return data_[i];
     }
     reference_type operator()(size_t i) {
-      static_assert(N == 1, "Cannot call operator() with 1 argument unless N == 1");
       return data_[i];
     }
 

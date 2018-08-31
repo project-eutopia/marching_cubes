@@ -7,6 +7,7 @@
 
 template <typename T, size_t N>
 class Size {
+  static_assert(N >= 1, "N must be at least 1 for Size");
   static_assert(std::is_unsigned<T>::value, "Size must be of unsigned type");
 
   public:
